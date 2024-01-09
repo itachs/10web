@@ -76,23 +76,23 @@ function App() {
           <ul>
             <li>
               <p>計測スタート位置</p>
-              <img src="pablic/s0.png" alt="はじまり" className="Image"/>
+              <img src="public/s0.png" alt="はじまり" className="Image"/>
             </li>
             <li>
               <p>20分後の位置</p>
-              <img src="pablic/s20.png" alt="20分後" className="Image"/>
+              <img src="public/s20.png" alt="20分後" className="Image"/>
             </li>
             <li>
               <p>30分後の位置</p>
-              <img src="pablic/s30.png" alt="30分後" className="Image"/>
+              <img src="public/s30.png" alt="30分後" className="Image"/>
             </li>
             <li>
               <p>60分後の位置</p>
-              <img src="pablic/s60.png" alt="60分後" className="Image"/>
+              <img src="public/s60.png" alt="60分後" className="Image"/>
             </li>
             <li>
               <p>90分後の位置</p>
-              <img src="pablic/s90.png" alt="90分後" className="Image"/>
+              <img src="public/s90.png" alt="90分後" className="Image"/>
             </li>
           </ul>
         </main>
