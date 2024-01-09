@@ -1,7 +1,6 @@
 
 import 'leaflet/dist/leaflet.css';
 import { Map } from "../src/Map";
-import "../style.css"
 import { useEffect, useState } from "react";
 
 
@@ -60,34 +59,72 @@ function App() {
   },[]);
   
   return (
-    <div className="App">
-      <h1>where is iss</h1>
-      <h2>
-       This site provides real-time location information of the ISS (international space station)
-      </h2>
-      {data && (
-        <>
-          <p>緯度: {data.latitude}</p>
-          <p>経度: {data.longitude}</p>
-          {countryData && countryData.country !== "??" && (
+    <>
+      <header>
+        <h1>ISSはどこにいるのか</h1>
+      </header>
+      <article>
+        <main>
+          <h2>サイト説明</h2>
+          <p>このサイトではiss(国際宇宙ステーション)の位置をリアルタイムでマップ上に表示しています。<br/>表示しているissは1998年11月20日にロシア・モルドバ・アゼルバイジャン・ベラルーシ・カザフスタン・アルメニア・ウズベキスタン・キルギス・タジキスタンの9か国からなるCISによって打ち上げられたNo.25544です。<br/>
+          </p>
+          <h2>リアルタイムMAP</h2>
+          <Map position={position}  trajectoryData={trajectoryData} name="map" className="map" />
+          <h2>
+            ISSの移動例
+          </h2>
+          <ul>
+            <li>
+              <p>計測スタート位置</p>
+              <img src="pablic/s0.png" alt="はじまり" className="Image"/>
+            </li>
+            <li>
+              <p>20分後の位置</p>
+              <img src="pablic/s20.png" alt="20分後" className="Image"/>
+            </li>
+            <li>
+              <p>30分後の位置</p>
+              <img src="pablic/s30.png" alt="30分後" className="Image"/>
+            </li>
+            <li>
+              <p>60分後の位置</p>
+              <img src="pablic/s60.png" alt="60分後" className="Image"/>
+            </li>
+            <li>
+              <p>90分後の位置</p>
+              <img src="pablic/s90.png" alt="90分後" className="Image"/>
+            </li>
+          </ul>
+        </main>
+        <aside>
+          <h2>
+            issの詳細
+          </h2>
+          {data && (
             <>
-              <p>現在地: {countryData.country} {data.altitude}Km上空</p>
-            </>
+              <p>緯度: {data.latitude}</p>
+              <p>経度: {data.longitude}</p>
+              {countryData && countryData.country !== "??" && (
+                <>
+                  <p>現在地: {countryData.country} {data.altitude}Km上空</p>
+                </>
+              )}
+              {countryData && countryData.country == "??" &&(
+                <>
+                  <p>現在地: SEA {data.altitude}Km上空</p>
+                </>
+              )}
+           </>
           )}
-          {countryData && countryData.country == "??" &&(
-            <>
-              <p>現在地: SEA {data.altitude}Km上空</p>
-            </>
-      )}
-        </>
-      )}
+        </aside>
+      </article>
       
-      <Map position={position}  trajectoryData={trajectoryData} name="map" />
+      
       <footer>
         <p>s5422069 板橋輝</p>
         <p>日本大学文理学部情報科学科 Webプログラミングの演習課題</p>
       </footer>
-    </div>
+    </>
   );
 }
 
